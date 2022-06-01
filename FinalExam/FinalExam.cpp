@@ -56,7 +56,7 @@ int main()
         }
     } while (choice != 4);
 
-    cout << "Bye.";
+    cout << endl << "Bye.";
 
     return 0;
 }
@@ -69,7 +69,7 @@ int menuCall() {
     int choice;
 
     do {
-        cout << "1) Enter data in matrix (range -10.5 to 7.5)" << endl
+        cout << endl << "1) Enter data in matrix (range -10.5 to 7.5)" << endl
             << "2) Negate all element (i.e. if a element is -5 => 5, or element 5 => -5)" << endl
             << "3) Show data in matrix" << endl
             << "4) Exit" << endl
@@ -96,11 +96,13 @@ void enterMatrix(double matrix[][COLUMNS], int const rows) {
     double const MIN = -10.5, MAX = 7.5;
     double userEnter;
 
+    //Added to separate blocks in console
+    cout << endl;
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < COLUMNS; j++) {
 
             do {
-                cout << "Enter value for matrix[" << i << "][" << j << "] in range from " << MIN << " to " << MAX << ": " << endl;
+                cout << "Enter value for matrix[" << i << "][" << j << "] in range from " << MIN << " to " << MAX << ": ";
                 cin >> userEnter;
 
                 if (userEnter < MIN || userEnter > MAX)
@@ -121,11 +123,13 @@ void enterMatrix(double matrix[][COLUMNS], int const rows) {
 void negateMatrix(double matrix[][COLUMNS], int const rows) {
     assert(rows > 0);
 
+ 
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < COLUMNS; j++) {
             matrix[i][j] = matrix[i][j] * -1;
         }
     }
+    cout << endl << "Successfuly negated!" << endl;
 }
 
 /** Function <code>showMatrix</code> used to show all elements in matrix
@@ -136,12 +140,12 @@ void negateMatrix(double matrix[][COLUMNS], int const rows) {
 void showMatrix(double const matrix[][COLUMNS], int const rows) {
     assert(rows > 0);
 
-    cout << "Matrix: " << endl;
+    //Added to separate blocks in console
+    cout << endl << "Matrix: " << endl;
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < COLUMNS; j++) {
             cout << " [" << matrix[i][j] << "] ";
         }
         cout << endl;
     }
-    cout << endl;
 }
