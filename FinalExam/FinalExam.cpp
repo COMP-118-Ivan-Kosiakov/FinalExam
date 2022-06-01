@@ -2,7 +2,7 @@
  * \brief Manipulations with matrix
  * \details This program used to manipulate with matrix (enter data, negate elements, show them and counts the number of 2.5) with functions through menu
  * \author Ivan Kosiakov
- * \version 2.0
+ * \version 2.1
  * \date 2022-2022
  */
 
@@ -19,7 +19,7 @@ int menuCall();
 void enterMatrix(double[][COLUMNS], int const);
 void negateMatrix(double[][COLUMNS], int const);
 void showMatrix(double const[][COLUMNS], int const);
-
+int countNumberInMatrix(double const [][COLUMNS], int const, double const);
 
 /** Function <code>main</code> used to execute all the code of the program
  *  </br>
@@ -27,6 +27,7 @@ void showMatrix(double const[][COLUMNS], int const);
  */
 int main()
 {
+    double const NUMBER_FOUND = 2.5;
     int const ROWS = 3;
     double matrix[ROWS][COLUMNS] = {0};
     int choice;
@@ -47,7 +48,7 @@ int main()
             break;
         
         case 4:
-            //Count the number of elements with the value 2.5
+            cout << endl << "Number of value " << NUMBER_FOUND << " in the matrix is " << countNumberInMatrix(matrix, ROWS, NUMBER_FOUND) << endl;
             break;
 
         case 5:
@@ -65,9 +66,9 @@ int main()
     return 0;
 }
 
-/** Function <code>menuCall</code> used to create a menu and allows user to choice a point of the menu (1-5)
+/** Function <code>menuCall</code> used to create a menu and allows user to choice a point of the menu (1-5).
  *  </br>
- *  @return Returns choice of the user
+ *  @return Returns choice of the user.
  */
 int menuCall() {
     int choice;
@@ -90,9 +91,10 @@ int menuCall() {
     return choice;
 }
 
-/** Function <code>enterMatrix</code> used to enter data in matrix
+/** Function <code>enterMatrix</code> used to enter data in matrix.
  *  </br>
  *  @param matrix is the array that contains doubles with dimensions 3X4 that is going to be filled in.
+ *  @param rows is amount of the rows in the matrix.
  */
 void enterMatrix(double matrix[][COLUMNS], int const rows) {
     //TODO: add assert for negative rows
@@ -117,9 +119,10 @@ void enterMatrix(double matrix[][COLUMNS], int const rows) {
     }
 }
 
-/** Function <code>negateMatrix</code> used to negate all elements in matrix
+/** Function <code>negateMatrix</code> used to negate all elements in matrix.
  *  </br>
  *  @param matrix is the array that contains doubles with dimensions 3X4 that is going to be negated.
+ *  @param rows is amount of the rows in the matrix.
  */
 void negateMatrix(double matrix[][COLUMNS], int const rows) {
     //TODO: add assert for negative rows
@@ -131,9 +134,10 @@ void negateMatrix(double matrix[][COLUMNS], int const rows) {
     }
 }
 
-/** Function <code>showMatrix</code> used to show all elements in matrix
+/** Function <code>showMatrix</code> used to show all elements in matrix.
  *  </br>
  *  @param matrix is the array that contains doubles with dimensions 3X4 that is going to be showed.
+ *  @param rows is amount of the rows in the matrix.
  */
 void showMatrix(double const matrix[][COLUMNS], int const rows) {
     //TODO: add assert for negative rows
@@ -146,4 +150,27 @@ void showMatrix(double const matrix[][COLUMNS], int const rows) {
         cout << endl;
     }
     cout << endl;
+}
+
+/** Function <code>countNumberInMatrix</code> used to count the number of elements with exact value.
+ *  </br>
+ *  @param matrix is the array that contains doubles with dimensions 3X4 that is going to be showed.
+ *  @param rows is amount of the rows in the matrix.
+ *  @param numberToFind is the value that should be found in the matrix.
+ * 
+ *  @return Returns number of elements with exact value.
+ */
+int countNumberInMatrix(double const matrix[][COLUMNS], int const rows, double const numberToFind) {
+    //TODO: add assert for negative rows
+
+    int amountOfNumbers = 0;
+
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < COLUMNS; j++) {
+            if (matrix[i][j] == numberToFind)
+                amountOfNumbers++;
+        }
+    }
+
+    return amountOfNumbers;
 }
