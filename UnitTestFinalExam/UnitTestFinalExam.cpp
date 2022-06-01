@@ -1,3 +1,11 @@
+/** \file UnitTestFinalExam.cpp
+ * \brief Unit test for the source code.
+ * \details This unit test is used to test some functions from source code.
+ * \author Ivan Kosiakov
+ * \version 1.1
+ * \date 2022-2022
+ */
+
 #include "pch.h"
 #include "CppUnitTest.h"
 #include "../FinalExam/FinalExam.cpp"
@@ -11,7 +19,7 @@ namespace UnitTestFinalExam
 	public:
 		
 		//Unit test for function negateMatrix
-		TEST_METHOD(TestMethod1)
+		TEST_METHOD(negateMatrixTest)
 		{
 			//Arrange
 			int const COLUMNS = 4, ROWS = 3;
