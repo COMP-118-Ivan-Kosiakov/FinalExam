@@ -61,9 +61,9 @@ int main()
     return 0;
 }
 
-/** Function <code>menuCall</code> used to create a menu and allows user to choice a point of the menu (1-4)
+/** Function <code>menuCall</code> used to create a menu and allows user to choice a point of the menu (1-4).
  *  </br>
- *  @return Returns choice of the user
+ *  @return Returns choice of the user.
  */
 int menuCall() {
     int choice;
@@ -85,12 +85,13 @@ int menuCall() {
     return choice;
 }
 
-/** Function <code>enterMatrix</code> used to enter data in matrix
+/** Function <code>enterMatrix</code> used to enter data in matrix.
  *  </br>
  *  @param matrix is the array that contains doubles with dimensions 3X4 that is going to be filled in.
+ *  @param rows is amount of the rows in the matrix.
  */
 void enterMatrix(double matrix[][COLUMNS], int const rows) {
-    //TODO: add assert for negative rows
+    assert(rows > 0);
 
     double const MIN = -10.5, MAX = 7.5;
     double userEnter;
@@ -112,12 +113,13 @@ void enterMatrix(double matrix[][COLUMNS], int const rows) {
     }
 }
 
-/** Function <code>negateMatrix</code> used to negate all elements in matrix
+/** Function <code>negateMatrix</code> used to negate all elements in matrix.
  *  </br>
  *  @param matrix is the array that contains doubles with dimensions 3X4 that is going to be negated.
+ *  @param rows is amount of the rows in the matrix.
  */
 void negateMatrix(double matrix[][COLUMNS], int const rows) {
-    //TODO: add assert for negative rows
+    assert(rows > 0);
 
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < COLUMNS; j++) {
@@ -129,9 +131,10 @@ void negateMatrix(double matrix[][COLUMNS], int const rows) {
 /** Function <code>showMatrix</code> used to show all elements in matrix
  *  </br>
  *  @param matrix is the array that contains doubles with dimensions 3X4 that is going to be showed.
+ *  @param rows is amount of the rows in the matrix.
  */
 void showMatrix(double const matrix[][COLUMNS], int const rows) {
-    //TODO: add assert for negative rows
+    assert(rows > 0);
 
     cout << "Matrix: " << endl;
     for (int i = 0; i < rows; i++) {
