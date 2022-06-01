@@ -18,6 +18,8 @@ int const COLUMNS = 4;
 int menuCall();
 void enterMatrix(double[][COLUMNS], int const);
 void negateMatrix(double[][COLUMNS], int const);
+void showMatrix(double const[][COLUMNS], int const);
+
 
 /** Function <code>main</code> used to execute all the code of the program
  *  </br>
@@ -26,7 +28,7 @@ void negateMatrix(double[][COLUMNS], int const);
 int main()
 {
     int const ROWS = 3;
-    double matrix[ROWS][COLUMNS];
+    double matrix[ROWS][COLUMNS] = {0};
     int choice;
 
     do {
@@ -41,7 +43,7 @@ int main()
             break;
 
         case 3: {
-            //Shows matrix
+            showMatrix(matrix, ROWS);
             break;
         }
         case 4:
@@ -53,6 +55,10 @@ int main()
             assert(false);
         }
     } while (choice != 4);
+
+    cout << "Bye.";
+
+    return 0;
 }
 
 /** Function <code>menuCall</code> used to create a menu and allows user to choice a point of the menu (1-4)
@@ -118,4 +124,21 @@ void negateMatrix(double matrix[][COLUMNS], int const rows) {
             matrix[i][j] = matrix[i][j] * -1;
         }
     }
+}
+
+/** Function <code>showMatrix</code> used to show all elements in matrix
+ *  </br>
+ *  @param matrix is the array that contains doubles with dimensions 3X4 that is going to be showed.
+ */
+void showMatrix(double const matrix[][COLUMNS], int const rows) {
+    //TODO: add assert for negative rows
+
+    cout << "Matrix: " << endl;
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < COLUMNS; j++) {
+            cout << " [" << matrix[i][j] << "] ";
+        }
+        cout << endl;
+    }
+    cout << endl;
 }
