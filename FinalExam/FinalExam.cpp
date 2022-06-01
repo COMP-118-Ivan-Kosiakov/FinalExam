@@ -97,7 +97,7 @@ int menuCall() {
  *  @param rows is amount of the rows in the matrix.
  */
 void enterMatrix(double matrix[][COLUMNS], int const rows) {
-    //TODO: add assert for negative rows
+    assert(rows > 0);
 
     double const MIN = -10.5, MAX = 7.5;
     double userEnter;
@@ -125,7 +125,7 @@ void enterMatrix(double matrix[][COLUMNS], int const rows) {
  *  @param rows is amount of the rows in the matrix.
  */
 void negateMatrix(double matrix[][COLUMNS], int const rows) {
-    //TODO: add assert for negative rows
+    assert(rows > 0);
 
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < COLUMNS; j++) {
@@ -140,7 +140,7 @@ void negateMatrix(double matrix[][COLUMNS], int const rows) {
  *  @param rows is amount of the rows in the matrix.
  */
 void showMatrix(double const matrix[][COLUMNS], int const rows) {
-    //TODO: add assert for negative rows
+    assert(rows > 0);
 
     cout << "Matrix: " << endl;
     for (int i = 0; i < rows; i++) {
@@ -161,7 +161,7 @@ void showMatrix(double const matrix[][COLUMNS], int const rows) {
  *  @return Returns number of elements with exact value.
  */
 int countNumberInMatrix(double const matrix[][COLUMNS], int const rows, double const numberToFind) {
-    //TODO: add assert for negative rows
+    assert(rows > 0);
 
     int amountOfNumbers = 0;
 
