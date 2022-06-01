@@ -84,9 +84,9 @@ int menuCall() {
         cin >> choice;
 
 
-        if (choice < 1 || choice > 6)
+        if (choice < 1 || choice > 5)
             cout << "You've entered an invalid value! Try again!" << endl;
-    } while (choice < 1 || choice > 6);
+    } while (choice < 1 || choice > 5);
 
     return choice;
 }
@@ -102,11 +102,13 @@ void enterMatrix(double matrix[][COLUMNS], int const rows) {
     double const MIN = -10.5, MAX = 7.5;
     double userEnter;
 
+    //Added to separate blocks in console
+    cout << endl;
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < COLUMNS; j++) {
 
             do {
-                cout << "Enter value for matrix[" << i << "][" << j << "] in range from " << MIN << " to " << MAX << ": " << endl;
+                cout << "Enter value for matrix[" << i << "][" << j << "] in range from " << MIN << " to " << MAX << ": ";
                 cin >> userEnter;
 
                 if (userEnter < MIN || userEnter > MAX)
@@ -132,6 +134,7 @@ void negateMatrix(double matrix[][COLUMNS], int const rows) {
             matrix[i][j] = matrix[i][j] * -1;
         }
     }
+    cout << endl << "Successfuly negated!" << endl;
 }
 
 /** Function <code>showMatrix</code> used to show all elements in matrix.
@@ -142,7 +145,7 @@ void negateMatrix(double matrix[][COLUMNS], int const rows) {
 void showMatrix(double const matrix[][COLUMNS], int const rows) {
     assert(rows > 0);
 
-    cout << "Matrix: " << endl;
+    cout << endl << "Matrix: " << endl;
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < COLUMNS; j++) {
             cout << " [" << matrix[i][j] << "] ";
