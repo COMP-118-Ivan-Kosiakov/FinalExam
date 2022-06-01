@@ -1,8 +1,8 @@
 /** \file FinalExam.cpp
  * \brief Manipulations with matrix
- * \details This program used to manipulate with matrix (enter data, negate elements and show them) with functions through menu
+ * \details This program used to manipulate with matrix (enter data, negate elements, show them and counts the number of 2.5) with functions through menu
  * \author Ivan Kosiakov
- * \version 1.1
+ * \version 2.0
  * \date 2022-2022
  */
 
@@ -42,26 +42,30 @@ int main()
             negateMatrix(matrix, ROWS);
             break;
 
-        case 3: {
+        case 3: 
             showMatrix(matrix, ROWS);
             break;
-        }
+        
         case 4:
+            //Count the number of elements with the value 2.5
+            break;
+
+        case 5:
             //No code needed
             break;
 
         default:
-            //This switch cannot contains something exept the numbers 1-4
+            //This switch cannot contains something exept the numbers 1-5
             assert(false);
         }
-    } while (choice != 4);
+    } while (choice != 5);
 
-    cout << "Bye.";
+    cout << endl << "Bye.";
 
     return 0;
 }
 
-/** Function <code>menuCall</code> used to create a menu and allows user to choice a point of the menu (1-4)
+/** Function <code>menuCall</code> used to create a menu and allows user to choice a point of the menu (1-5)
  *  </br>
  *  @return Returns choice of the user
  */
@@ -69,18 +73,19 @@ int menuCall() {
     int choice;
 
     do {
-        cout << "1) Enter data in matrix (range -10.5 to 7.5)" << endl
+        cout << endl << "1) Enter data in matrix (range -10.5 to 7.5)" << endl
             << "2) Negate all element (i.e. if a element is -5 => 5, or element 5 => -5)" << endl
             << "3) Show data in matrix" << endl
-            << "4) Exit" << endl
+            << "4) Count the number of elements with the value 2.5" << endl
+            << "5) Exit" << endl
             << "Enter your choise: ";
 
         cin >> choice;
 
 
-        if (choice < 1 || choice > 4)
+        if (choice < 1 || choice > 6)
             cout << "You've entered an invalid value! Try again!" << endl;
-    } while (choice < 1 || choice > 4);
+    } while (choice < 1 || choice > 6);
 
     return choice;
 }
