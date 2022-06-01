@@ -17,6 +17,7 @@ int const COLUMNS = 4;
 //Function prototypes
 int menuCall();
 void enterMatrix(double[][COLUMNS], int const);
+void negateMatrix(double[][COLUMNS], int const);
 
 /** Function <code>main</code> used to execute all the code of the program
  *  </br>
@@ -36,13 +37,13 @@ int main()
             break;
 
         case 2:
-            //Negation of all elements
+            negateMatrix(matrix, ROWS);
             break;
 
-        case 3:
-            //Showing data in matrix
+        case 3: {
+            //Shows matrix
             break;
-
+        }
         case 4:
             //No code needed
             break;
@@ -83,6 +84,8 @@ int menuCall() {
  *  @param matrix is the array that contains doubles with dimensions 3X4 that is going to be filled in.
  */
 void enterMatrix(double matrix[][COLUMNS], int const rows) {
+    //TODO: add assert for negative rows
+
     double const MIN = -10.5, MAX = 7.5;
     double userEnter;
 
@@ -95,8 +98,24 @@ void enterMatrix(double matrix[][COLUMNS], int const rows) {
 
                 if (userEnter < MIN || userEnter > MAX)
                     cout << "You've entered value that out of range! Try again!" << endl;
+                else
+                    matrix[i][j] = userEnter;
             } while (userEnter < MIN || userEnter > MAX);
 
+        }
+    }
+}
+
+/** Function <code>negateMatrix</code> used to negate all elements in matrix
+ *  </br>
+ *  @param matrix is the array that contains doubles with dimensions 3X4 that is going to be negated.
+ */
+void negateMatrix(double matrix[][COLUMNS], int const rows) {
+    //TODO: add assert for negative rows
+
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < COLUMNS; j++) {
+            matrix[i][j] = matrix[i][j] * -1;
         }
     }
 }
